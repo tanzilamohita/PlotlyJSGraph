@@ -4,7 +4,7 @@
 # =============================================================
 # Plotly Live Graph
 # =============================================================
-# create date:2019/11/19     writen By Islam Tanzila
+# create date:2019/11/19     writen By Tanzila Islam
 # modify date:
 # =============================================================
 */
@@ -60,12 +60,14 @@ function print_a($array){
    <!--  <div class="navbar"><span>Real-Time Chart with Plotly.js</span></div> -->
     <div class="wrapper">
 
-        <div id="chart"></div>
+        <div id="chart" style="width: 50%; height: 500px; margin: 0 auto;"></div>
         <script>
 
             function getData() {
+               // var time = new Date();
                 var jsondata = {
                 x: <?php echo $jsondt; ?>,
+                // x: [time],
                 y: <?php echo $jsonTmp; ?>,
                 type: 'line+markers', 
             };
@@ -106,6 +108,34 @@ function print_a($array){
               }
             };
             Plotly.newPlot('chart', getData(), layout);
+
+
+          //   var cnt = 0;
+
+          //   var interval = setInterval(function() {
+
+          //   var time = new Date();
+
+          //   var update = {
+          //   x:  [[time]],
+          //   y: <?php //echo $jsonTmp; ?>
+          //   }
+
+          //   var olderTime = time.setMinutes(time.getMinutes() - 1);
+          //   var futureTime = time.setMinutes(time.getMinutes() + 1);
+
+          //   var minuteView = {
+          //         xaxis: {
+          //           type: 'date',
+          //           range: [olderTime,futureTime]
+          //         }
+          //       };
+
+          //   Plotly.relayout('graph', minuteView);
+          //   Plotly.extendTraces('graph', update, [0])
+
+          //   if(++cnt === 100) clearInterval(interval);
+          // }, 1000);
             //alert(getData());
             // function getData() {
             //     return Math.random();
@@ -130,6 +160,8 @@ function print_a($array){
             //     }
             // },15);
         </script>
+
+  
     </div>
     </body>
 </html>
